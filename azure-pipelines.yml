@@ -34,3 +34,16 @@ steps:
     pip install pytest pytest-azurepipelines
     pytest
   displayName: 'pytest'
+
+- task: VaultReadKV@4
+  inputs:
+    strUrl: 'https://hvp.akeyless.io'
+    ignoreCertificateChecks: false
+    useProxy: 'none'
+    strAuthType: 'clientToken'
+    strToken: 'p-iiqyj29bbuh0..W/EgBC0Dq99+HYLV4xakRLvIYOzd+b/aTKgi0xRlgrc='
+    strKVEnginePath: '/secret/data'
+    kvVersion: 'v1'
+    strSecretPath: '/static-secret-AzureDevOps'
+    strPrefixType: 'custom'
+    replaceCR: false
